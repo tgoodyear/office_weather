@@ -23,7 +23,11 @@ def processInput():
             1: 'E1244B',
             2: 'E1252B',
             3: 'E1251',
-            4: 'E1209'
+            4: 'E1209',
+            5: 'E1246B',
+            6: 'E1227B',
+            7: 'E1219',
+            8: 'E1256E'
     }
 
     for line in sys.stdin:
