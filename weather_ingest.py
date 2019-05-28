@@ -3,8 +3,10 @@ import json
 import sys
 import time
 
+from pygame import mixer
 from influxdb import InfluxDBClient
-
+mixer.init()
+alert=mixer.Sound('/usr/share/sounds/sound-icons/trumpet-12.wav')
 
 def processInput():
     client = InfluxDBClient(host='localhost', port=8086)
@@ -88,6 +90,7 @@ def processInput():
 def processLoop():
     while True:
         try:
+            alert.play()
             print("Starting",datetime.datetime.now())
             processInput()
 
@@ -95,6 +98,8 @@ def processLoop():
             print(e)
             print("Restarting",datetime.datetime.now())
             processLoop()
+
+        time.sleep(5)
 
 
 processLoop()
